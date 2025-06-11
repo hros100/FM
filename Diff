@@ -1,0 +1,113 @@
+diff
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wealth Planning Checklist</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fdfbf7;
+      color: #002f5f;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #002f5f;
+      border-bottom: 3px solid #b79b74;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #b79b74;
+      margin-top: 30px;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .email-button {
+      display: inline-block;
+      margin-top: 40px;
+      background-color: #002f5f;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>First Manhattan Wealth Planning Checklist</h1>
+  <p>Please check the areas where you would like guidance or support. When complete, click the email button to share your selections with your advisor.</p>
+
+  <div class="section">
+    <h2>General Wealth Planning</h2>
+    <label><input type="checkbox"> Budgeting & Cash Flow Management</label>
+    <label><input type="checkbox"> Financial Goal Setting & Tracking</label>
+  </div>
+
+  <div class="section">
+    <h2>Life Events</h2>
+    <label><input type="checkbox"> Marriage & Prenuptial Considerations</label>
+    <label><input type="checkbox"> Next-Generation Education Funding</label>
+    <label><input type="checkbox"> Divorce or Separation Planning</label>
+    <label><input type="checkbox"> Retirement Planning</label>
+    <label><input type="checkbox"> Planning for Inheritance</label>
+  </div>
+
+  <div class="section">
+    <h2>Protection</h2>
+    <label><input type="checkbox"> Risk Management & Insurance</label>
+    <label><input type="checkbox"> Social Security & Medicare Review</label>
+    <label><input type="checkbox"> Long-Term Care Planning</label>
+    <label><input type="checkbox"> Cybersecurity Audit</label>
+  </div>
+
+  <div class="section">
+    <h2>Outstanding Loans & Credit</h2>
+    <label><input type="checkbox"> Debt Management & Repayment Strategies</label>
+  </div>
+
+  <div class="section">
+    <h2>Gifting</h2>
+    <label><input type="checkbox"> Charitable Giving & Philanthropy</label>
+    <label><input type="checkbox"> Next-Generation Wealth Transfer</label>
+  </div>
+
+  <div class="section">
+    <h2>Trust & Estate Plans and Legal Documents</h2>
+    <label><input type="checkbox"> Estate Planning</label>
+    <label><input type="checkbox"> Estate Equalization</label>
+    <label><input type="checkbox"> Estate Tax Analysis</label>
+  </div>
+
+  <div class="section">
+    <h2>Family Office</h2>
+    <label><input type="checkbox"> Governance</label>
+    <label><input type="checkbox"> Succession Planning</label>
+    <label><input type="checkbox"> Multi-Generational Technology Solutions</label>
+  </div>
+
+  <div class="section">
+    <h2>Business Planning</h2>
+    <label><input type="checkbox"> Transition Planning & Funding</label>
+    <label><input type="checkbox"> Attracting & Retaining Key Talent</label>
+    <label><input type="checkbox"> Executive Benefits</label>
+  </div>
+
+  <a class="email-button" href="mailto:advisor@firstmanhattan.com?subject=Wealth%20Planning%20Checklist%20Selections&body=Hello,%0D%0A%0D%0AHere are the areas I'd like to discuss further:%0D%0A%0D%0A[Paste selections here]%0D%0A%0D%0AThank you,%0D%0A[Your Name]">
+    Email My Selections
+  </a>
+
+</body>
+</html>
+
