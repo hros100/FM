@@ -1,0 +1,219 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wealth Planning Checklist</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fdfbf7;
+      color: #002f5f;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #002f5f;
+      border-bottom: 3px solid #b79b74;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #b79b74;
+      margin-top: 30px;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .email-button {
+      display: inline-block;
+      margin-top: 40px;
+      background-color: #002f5f;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      color: #002f5f;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>First Manhattan Wealth Planning Checklist</h1>
+  <p>Please check the areas where you would like guidance or support. Click any item to learn more. When you’re ready, click the button to email your selections.</p>
+
+  <div class="section">
+    <h2>General Wealth Planning</h2>
+    <label><input type="checkbox"> Budgeting & Cash Flow Management</label>
+    <label><input type="checkbox"> Financial Goal Setting & Tracking</label>
+  </div>
+
+  <div class="section">
+    <h2>Life Events</h2>
+    <label><input type="checkbox"> Marriage & Prenuptial Considerations</label>
+    <label><input type="checkbox"> Next-Generation Education Funding</label>
+    <label><input type="checkbox"> Divorce or Separation Planning</label>
+    <label><input type="checkbox"> Retirement Planning</label>
+    <label><input type="checkbox"> Planning for Inheritance</label>
+  </div>
+
+  <div class="section">
+    <h2>Protection</h2>
+    <label><input type="checkbox"> Risk Management & Insurance</label>
+    <label><input type="checkbox"> Social Security & Medicare Review</label>
+    <label><input type="checkbox"> Long-Term Care Planning</label>
+    <label><input type="checkbox"> Cybersecurity Audit</label>
+  </div>
+
+  <div class="section">
+    <h2>Outstanding Loans & Credit</h2>
+    <label><input type="checkbox"> Debt Management & Repayment Strategies</label>
+  </div>
+
+  <div class="section">
+    <h2>Gifting</h2>
+    <label><input type="checkbox"> Charitable Giving & Philanthropy</label>
+    <label><input type="checkbox"> Next-Generation Wealth Transfer</label>
+  </div>
+
+  <div class="section">
+    <h2>Trust & Estate Plans and Legal Documents</h2>
+    <label><input type="checkbox"> Estate Planning</label>
+    <label><input type="checkbox"> Estate Equalization</label>
+    <label><input type="checkbox"> Estate Tax Analysis</label>
+  </div>
+
+  <div class="section">
+    <h2>Family Office</h2>
+    <label><input type="checkbox"> Governance</label>
+    <label><input type="checkbox"> Succession Planning</label>
+    <label><input type="checkbox"> Multi-Generational Technology Solutions</label>
+  </div>
+
+  <div class="section">
+    <h2>Business Planning</h2>
+    <label><input type="checkbox"> Transition Planning & Funding</label>
+    <label><input type="checkbox"> Attracting & Retaining Key Talent</label>
+    <label><input type="checkbox"> Executive Benefits</label>
+  </div>
+
+  <button id="emailButton" class="email-button">
+    Email My Selections
+  </button>
+
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const descriptions = {
+      "Budgeting & Cash Flow Management": "Track your income and expenses to maintain financial stability and ensure that spending aligns with long-term goals.",
+      "Financial Goal Setting & Tracking": "Track your income and expenses to maintain financial stability and ensure that spending aligns with long-term goals.",
+      "Marriage & Prenuptial Considerations": "Coordinate legal and financial planning to protect assets and clarify expectations before or during marriage.",
+      "Next-Generation Education Funding": "Plan and save efficiently for future generations’ educational expenses.",
+      "Divorce or Separation Planning": "Assess and restructure financial responsibilities, assets, and support obligations in the event of marital separation.",
+      "Retirement Planning": "Estimate future income needs and create a savings and investment strategy to sustain a desired lifestyle in retirement.",
+      "Planning for Inheritance": "Strategically prepare for receiving or passing on wealth to ensure tax efficiency and family alignment.",
+      "Risk Management & Insurance": "Use insurance products to protect against significant personal, financial, or property loss.",
+      "Social Security & Medicare Review": "Optimize timing and elections for government benefits to support retirement income and healthcare needs.",
+      "Long-Term Care Planning": "Plan for the potential costs and care needs associated with aging or chronic health conditions.",
+      "Cybersecurity Audit": "Assess and protect digital accounts and sensitive financial information from theft or fraud.",
+      "Debt Management & Repayment Strategies": "Evaluate and structure debt to reduce interest costs and improve overall financial health.",
+      "Charitable Giving & Philanthropy": "Develop a plan for donating to causes in a tax-efficient, impactful, and intentional manner.",
+      "Next-Generation Wealth Transfer": "Develop a plan for transferring wealth to the next generation in a tax-efficient, impactful way.",
+      "Estate Planning": "Prepare and educate heirs to receive and manage family wealth responsibly.",
+      "Estate Equalization": "Allocate assets fairly among heirs, especially when family business or illiquid assets are involved.",
+      "Estate Tax Analysis": "Evaluate and minimize potential estate tax liabilities through planning and gifting strategies.",
+      "Governance": "Establish decision-making frameworks and family structures to manage shared wealth and values.",
+      "Succession Planning": "Identify and prepare the next generation to take over a family business or assets.",
+      "Multi-Generational Technology Solutions": "Implement systems that enable secure communication, reporting, and decision-making across generations.",
+      "Transition Planning & Funding": "Plan for the sale, transfer, or restructuring of a business, including liquidity and capital needs.",
+      "Attracting & Retaining Key Talent": "Design compensation and benefits strategies to recruit and keep top executives and employees.",
+      "Executive Benefits": "Offer tailored benefit packages to reward executives and align incentives with business performance."
+    };
+
+    function showModal(label) {
+      document.getElementById("modalContent").innerText = descriptions[label] || "Description not available.";
+      document.getElementById("modalOverlay").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("modalOverlay").style.display = "none";
+    }
+
+    document.querySelectorAll("label").forEach(label => {
+      label.addEventListener("click", e => {
+        if (e.target.tagName.toLowerCase() !== 'input') {
+          showModal(label.innerText.trim());
+        }
+      });
+    });
+
+    function sendEmail() {
+      const checked = Array.from(
+        document.querySelectorAll('input[type="checkbox"]:checked')
+      ).map(cb => cb.parentElement.innerText.trim());
+
+      if (!checked.length) {
+        alert("Please select at least one item before emailing.");
+        return;
+      }
+
+      const subject = encodeURIComponent("Wealth Planning Checklist Selections");
+      const body = encodeURIComponent(
+        ["Hello,", "", "Here are the areas I'd like to discuss further:", ""]
+        .concat(checked)
+        .concat(["", "Thank you,"])
+        .join("\n")
+      );
+
+      window.location.href = `mailto:ppigman@firstmanhattan.com?subject=${subject}&body=${body}`;
+    }
+
+    document.getElementById("emailButton")
+      .addEventListener("click", sendEmail);
+  </script>
+
+</body>
+</html>
+```
